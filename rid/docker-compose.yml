@@ -4,7 +4,7 @@ services:
   app:
     build: .
     volumes:
-      - ..:/app:cached
+      - ..:/app
     volumes_from:
       - volume
     extra_hosts:
