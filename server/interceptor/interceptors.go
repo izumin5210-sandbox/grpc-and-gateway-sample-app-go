@@ -11,6 +11,7 @@ import (
 func WithStreamServerInterceptor(c *system.AppContext) grpc.ServerOption {
 	interceptors := []grpc.StreamServerInterceptor{}
 	interceptors = append(interceptors,
+		errorsStreamServerInterceptor(),
 		recoveryStreamServerInterceptor(),
 		ctxtagsStreamServerInterceptor(),
 		zapStreamServerInterceptor(c),
@@ -23,6 +24,7 @@ func WithStreamServerInterceptor(c *system.AppContext) grpc.ServerOption {
 func WithUnaryServerInterceptor(c *system.AppContext) grpc.ServerOption {
 	interceptors := []grpc.UnaryServerInterceptor{}
 	interceptors = append(interceptors,
+		errorsUnaryServerInterceptor(),
 		recoveryUnaryServerInterceptor(),
 		ctxtagsUnaryServerInterceptor(),
 		zapUnaryServerInterceptor(c),
