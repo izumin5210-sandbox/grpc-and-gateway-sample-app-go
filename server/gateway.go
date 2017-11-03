@@ -9,6 +9,7 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/izumin5210-sandbox/grpc-and-gateway-sample-app-go/api"
+	"github.com/izumin5210-sandbox/grpc-and-gateway-sample-app-go/server/interceptor"
 	"github.com/izumin5210-sandbox/grpc-and-gateway-sample-app-go/type/system"
 )
 
@@ -17,6 +18,8 @@ func gatewayServer(c context.Context, appC *system.AppContext) (http.Handler, er
 
 	opts := []grpc.DialOption{
 		grpc.WithInsecure(),
+		interceptor.WithStreamClientInterceptor(appC),
+		interceptor.WithUnaryClientInterceptor(appC),
 	}
 
 	var err error
