@@ -44,6 +44,12 @@
   revision = "1643683e1b54a9e88ad26d98f81400c8c9d9f4f9"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/grpc-ecosystem/go-grpc-middleware"
+  packages = [".","logging","logging/zap","tags"]
+  revision = "82921fcf811d228d2fa202bc31238b356bf9f8d5"
+
+[[projects]]
   name = "github.com/grpc-ecosystem/grpc-gateway"
   packages = ["protoc-gen-grpc-gateway","protoc-gen-grpc-gateway/descriptor","protoc-gen-grpc-gateway/generator","protoc-gen-grpc-gateway/gengateway","protoc-gen-grpc-gateway/httprule","protoc-gen-swagger","protoc-gen-swagger/genswagger","runtime","runtime/internal","utilities"]
   revision = "589b126116b5fc961939b3e156c29e4d9d58222f"
@@ -136,6 +142,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "0fbc21f8913885d886db4ab298dc85edda7943f3dc8b16dd3384c8b3862bdeed"
+  inputs-digest = "878fdf879863389bb38a5bf839db13cce82029fe4d9e629fca2630601c628220"
   solver-name = "gps-cdcl"
   solver-version = 1
