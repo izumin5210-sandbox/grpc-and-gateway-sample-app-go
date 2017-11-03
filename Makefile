@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := all
 
 SRC_FILES := $(shell git ls-files | grep -E "\.go$$" | grep -v -E "\.pb(:?\.gw)?\.go$$")
-GO_TEST_FLAGS  := -v -race
+GO_TEST_FLAGS  := -v
 GO_BUILD_FLAGS := -v -ldflags="-s -w"
 
 DEP_COMMANDS := \
@@ -18,11 +18,15 @@ endef
 
 $(foreach cmd,$(DEP_COMMANDS),$(eval $(call depcmdtmpl,$(cmd))))
 
+define section
+  @printf "\e[34m--> $1\e[0m\n"
+endef
+
 #  App
 #-----------------------------------------------
 BIN := bin/app
 
-$(BIN): $(SRC_FILES)
+$(BIN):
 	@echo "Building $(BIN)"
 	@go build $(GO_BUILD_FLAGS) -o $(BIN) main.go
 
@@ -40,7 +44,8 @@ dep: Gopkg.toml Gopkg.lock
 cmds: $(DEP_COMMANDS)
 
 .PHONY: gen
-gen: $(SRC_FILES)
+gen:
+	$(call section,generating)
 	@PATH=$$PWD/bin:$$PATH go generate ./...
 
 .PHONY: setup
@@ -48,17 +53,20 @@ setup: dep cmds gen
 
 .PHONY: lint
 lint:
+	$(call section,linting)
 	@gofmt -e -d -s $(SRC_FILES) | awk '{ e = 1; print $0 } END { if (e) exit(1) }'
 	@echo $(SRC_FILES) | xargs -n1 golint -set_exit_status
 	@go vet ./...
 
 .PHONY: test
 test: gen lint
+	$(call section,testing)
 	@go test $(GO_TEST_FLAGS) ./...
 
 .PHONY: ci-test
 ci-test: lint
-	@go test $(GO_TEST_FLAGS) ./...
+	$(call section,testing)
+	@go test $(GO_TEST_FLAGS) -race ./...
 
 .PHONY: run
 run: gen $(BIN)
