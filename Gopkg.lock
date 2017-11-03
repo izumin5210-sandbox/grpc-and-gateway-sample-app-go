@@ -8,6 +8,12 @@
   version = "v7"
 
 [[projects]]
+  name = "github.com/certifi/gocertifi"
+  packages = ["."]
+  revision = "3fd9e1adb12b72d2f3f82191d49be9b93c69f67c"
+  version = "2017.07.27"
+
+[[projects]]
   name = "github.com/creasty/apperrors"
   packages = ["."]
   revision = "c9bdbba6b05d5cd9539f6b3f6633a8dabe03afbf"
@@ -18,6 +24,12 @@
   name = "github.com/creasty/configo"
   packages = ["."]
   revision = "288b7e8980d293cb5a71a4be33706dab34ad56ea"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/getsentry/raven-go"
+  packages = ["."]
+  revision = "1452f6376ddb15c546b6d7567e1d9518765391b5"
 
 [[projects]]
   name = "github.com/ghodss/yaml"
@@ -148,6 +160,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b8b87f2ed4258c982aa2fc2fd058909dfdedd9dc5638cd03eae043fd20720edd"
+  inputs-digest = "8cc7ed9a4d4bdce17bc1d3feeef45a9e39ba57b2862185fc2f4b191156ccd2c1"
   solver-name = "gps-cdcl"
   solver-version = 1
