@@ -3,11 +3,9 @@ package server
 import (
 	"context"
 	"net"
+	"net/http"
 
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/reflection"
-
-	"github.com/izumin5210-sandbox/grpc-and-gateway-sample-app-go/server/internal/profile"
+	"github.com/soheilhy/cmux"
 )
 
 // Run initializes and start application server
@@ -16,8 +14,25 @@ func Run(c context.Context) error {
 	if err != nil {
 		return err
 	}
-	s := grpc.NewServer()
-	profile.Register(s)
-	reflection.Register(s)
-	return s.Serve(lis)
+	c, cancel := context.WithCancel(c)
+	defer cancel()
+
+	mux := cmux.New(lis)
+
+	{
+		// Starts gRPC server
+		s := grpcServer(c)
+		go s.Serve(mux.Match(cmux.HTTP2HeaderField("content-type", "application/grpc")))
+	}
+
+	{
+		// Starts grpc-gateway server
+		s, err := gatewayServer(c)
+		if err != nil {
+			return err
+		}
+		go http.Serve(mux.Match(cmux.HTTP2(), cmux.HTTP1()), s)
+	}
+
+	return mux.Serve()
 }
