@@ -1,0 +1,21 @@
+version: '2.1'
+
+services:
+  app:
+    build: .
+    volumes:
+      - ..:/app:cached
+    volumes_from:
+      - volume
+    extra_hosts:
+      localhost: "${DOCKER_HOST_IP}"
+    ports:
+      - 3100:3100
+    command: tail -f /dev/null
+    privileged: true # for delve
+
+  volume:
+    image: alpine:latest
+    volumes:
+      - /app/vendor
+    command: tail -f /dev/null

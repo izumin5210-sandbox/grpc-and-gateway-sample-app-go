@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+
+
+#=== Utils
+#==============================================================================================
+section() {
+  printf "\e[33m==> $1\e[0m\n"
+}
+
+subsection() {
+  printf "\e[34m--> $1\e[0m\n"
+}
+
+print_error() {
+  printf "\e[0;31m[Error]\e[0m $@\n" 1>&2
+}
+
+
+#=== Steps
+#==============================================================================================
+install_deps() {
+  section 'Install dependencies'
+  make setup
+}
+
+copy_dotenv() {
+  section 'Copy dotenv'
+
+  if [ -f .env ]; then
+    echo 'skip (already exists)'
+  else
+    cp .env{.sample,}
+    echo 'ok'
+  fi
+}
+
+
+#=== Entrypoint
+#==============================================================================================
+main() {
+  copy_dotenv
+  install_deps
+}
+
+main

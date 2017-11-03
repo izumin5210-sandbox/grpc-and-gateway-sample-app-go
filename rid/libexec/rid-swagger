@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+
+NAME=the-swagger
+IMAGE=swaggerapi/swagger-ui
+PORT=8080
+
+#  Commands
+#-----------------------------------------------
+server_stop() {
+  echo "==> Stopping server"
+  docker stop $NAME
+}
+
+server_start() {
+  echo "==> Starting server"
+  docker start $NAME 2>/dev/null || server_create
+}
+
+server_destory() {
+  echo "==> Destroying server"
+  docker rm $NAME
+}
+
+server_create() {
+  echo "==> Creating server"
+  docker run \
+    -p $PORT:8080 \
+    --name $NAME \
+    -v $(pwd)/api/:/usr/share/nginx/html/api/ \
+    -e API_URL=http://localhost:$PORT/api/profile.swagger.json \
+    -d \
+    $IMAGE
+}
+
+exec_psql() {
+  docker exec -it $NAME psql --username=$USER
+}
+
+exec_createdb() {
+  docker exec -it $NAME createdb --username=$USER "$1"
+}
+
+exec_logs() {
+  docker logs -f $NAME
+}
+
+
+#  Entrypoint
+#-----------------------------------------------
+COMMAND="${1:-}"
+shift || true
+
+case "$COMMAND" in
+  start)    server_start ;;
+  stop)     server_stop ;;
+  destroy)  server_destory ;;
+  logs)     exec_logs ;;
+esac
