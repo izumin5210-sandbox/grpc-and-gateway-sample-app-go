@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package api;
+
+import "google/api/annotations.proto";
+
+service ProfileService {
+  rpc Get (GetProfileRequest) returns (Profile) {
+    option (google.api.http) = {
+      get: "/api/profiles/{user_id}"
+    };
+  }
+}
+
+message GetProfileRequest {
+  uint64 user_id = 1;
+}
+
+message Profile {
+  uint64 uesr_id = 1;
+  string name = 2;
+  string location = 3;
+  repeated WorkingHistory working_histories = 4;
+}
+
+message WorkingHistory {
+  string company = 1;
+}
