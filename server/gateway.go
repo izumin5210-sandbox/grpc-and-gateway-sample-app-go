@@ -4,6 +4,7 @@ import (
 	"context"
 	"net/http"
 
+	"github.com/creasty/apperrors"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
 
@@ -21,7 +22,7 @@ func gatewayServer(c context.Context) (http.Handler, error) {
 
 	err = api.RegisterProfileServiceHandlerFromEndpoint(c, mux, ":3000", opts)
 	if err != nil {
-		return nil, err
+		return nil, apperrors.WithMessage(err, "failed to register ProfileServiceServer handler")
 	}
 
 	return mux, nil
