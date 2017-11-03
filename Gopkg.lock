@@ -2,9 +2,27 @@
 
 
 [[projects]]
+  name = "github.com/asaskevich/govalidator"
+  packages = ["."]
+  revision = "73945b6115bfbbcc57d89b7316e28109364124e1"
+  version = "v7"
+
+[[projects]]
   name = "github.com/creasty/apperrors"
   packages = ["."]
   revision = "c9bdbba6b05d5cd9539f6b3f6633a8dabe03afbf"
+  version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/creasty/configo"
+  packages = ["."]
+  revision = "288b7e8980d293cb5a71a4be33706dab34ad56ea"
+
+[[projects]]
+  name = "github.com/ghodss/yaml"
+  packages = ["."]
+  revision = "0ca9ea5df5451ffdf184b4428c902747c2c11cd7"
   version = "v1.0.0"
 
 [[projects]]
@@ -24,6 +42,24 @@
   packages = ["protoc-gen-grpc-gateway","protoc-gen-grpc-gateway/descriptor","protoc-gen-grpc-gateway/generator","protoc-gen-grpc-gateway/gengateway","protoc-gen-grpc-gateway/httprule","protoc-gen-swagger","protoc-gen-swagger/genswagger","runtime","runtime/internal","utilities"]
   revision = "589b126116b5fc961939b3e156c29e4d9d58222f"
   version = "v1.2.2"
+
+[[projects]]
+  name = "github.com/joho/godotenv"
+  packages = ["."]
+  revision = "a79fa1e548e2c689c241d10173efd51e5d689d5b"
+  version = "v1.2.0"
+
+[[projects]]
+  name = "github.com/kelseyhightower/envconfig"
+  packages = ["."]
+  revision = "f611eb38b3875cc3bd991ca91c51d06446afa14c"
+  version = "v1.3.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/mattn/go-zglob"
+  packages = [".","fastwalk"]
+  revision = "4ecb59231939b2e499b1f2fd8f075565977d2452"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -61,9 +97,15 @@
   revision = "61d37c5d657a47e4404fd6823bd598341a2595de"
   version = "v1.7.1"
 
+[[projects]]
+  branch = "v2"
+  name = "gopkg.in/yaml.v2"
+  packages = ["."]
+  revision = "eb3733d160e74a9c7e442f435eb3bea458e1d19f"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "9620147c9fe3f5e8f89d8e77d0f8e0bcbe0edc44cd05c7f7853c583480075a2a"
+  inputs-digest = "8bf0b1eeec64d97d4ff56ce3d6223df403e60baf91ddfbb701f06bcf555abb05"
   solver-name = "gps-cdcl"
   solver-version = 1
