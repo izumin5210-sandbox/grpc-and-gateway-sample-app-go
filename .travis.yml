@@ -12,7 +12,7 @@ before_install:
 
 install:
 - export GOBIN="$GOPATH/bin"
-- export PATH="$PATH:$GOBIN"
+- export PATH="$PATH:$GOBIN:$PWD/bin"
 - make dep
 - make cmds
 
