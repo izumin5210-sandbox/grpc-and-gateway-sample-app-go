@@ -46,3 +46,7 @@ required = [
 [[constraint]]
   branch = "master"
   name = "github.com/grpc-ecosystem/go-grpc-middleware"
+
+[[constraint]]
+  name = "github.com/izumin5210/grpc-errors"
+  version = "0.2.0"

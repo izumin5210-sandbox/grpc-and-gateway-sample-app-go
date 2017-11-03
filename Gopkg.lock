@@ -56,6 +56,12 @@
   version = "v1.2.2"
 
 [[projects]]
+  name = "github.com/izumin5210/grpc-errors"
+  packages = ["."]
+  revision = "f7c78f2ff6f1ac4c1c527550d6ffd79a03fca12e"
+  version = "v0.2.0"
+
+[[projects]]
   name = "github.com/joho/godotenv"
   packages = ["."]
   revision = "a79fa1e548e2c689c241d10173efd51e5d689d5b"
@@ -142,6 +148,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c776791a77e82c0c0bc4cb977638c129a8553c5fead221aa9ce32ae67a9ac4bc"
+  inputs-digest = "34d49deefa075f3a371cebe0e2a5bcc578702a123082a2c4428e3d1b1e1af079"
   solver-name = "gps-cdcl"
   solver-version = 1
