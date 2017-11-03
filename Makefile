@@ -26,7 +26,7 @@ endef
 #-----------------------------------------------
 BIN := bin/app
 
-$(BIN):
+$(BIN): $(SRC_FIELS)
 	@echo "Building $(BIN)"
 	@go build $(GO_BUILD_FLAGS) -o $(BIN) main.go
 
@@ -45,7 +45,7 @@ cmds: $(DEP_COMMANDS)
 
 .PHONY: gen
 gen:
-	$(call section,generating)
+	$(call section,Generate)
 	@PATH=$$PWD/bin:$$PATH go generate ./...
 
 .PHONY: setup
@@ -53,21 +53,22 @@ setup: dep cmds gen
 
 .PHONY: lint
 lint:
-	$(call section,linting)
+	$(call section,Lint)
 	@gofmt -e -d -s $(SRC_FILES) | awk '{ e = 1; print $0 } END { if (e) exit(1) }'
 	@echo $(SRC_FILES) | xargs -n1 golint -set_exit_status
 	@go vet ./...
 
 .PHONY: test
 test: gen lint
-	$(call section,testing)
+	$(call section,Test)
 	@go test $(GO_TEST_FLAGS) ./...
 
 .PHONY: ci-test
 ci-test: lint
-	$(call section,testing)
+	$(call section,Test)
 	@go test $(GO_TEST_FLAGS) -race ./...
 
 .PHONY: run
 run: gen $(BIN)
+	$(call section,Start server)
 	@$(BIN)
