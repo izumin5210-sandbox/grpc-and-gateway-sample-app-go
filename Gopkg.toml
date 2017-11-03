@@ -25,3 +25,7 @@ required = [
   "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway",
   "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger",
 ]
+
+[[constraint]]
+  name = "github.com/soheilhy/cmux"
+  version = "0.1.3"
