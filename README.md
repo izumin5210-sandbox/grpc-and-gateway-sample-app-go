@@ -1,5 +1,6 @@
 # gRPC + Gateway server app sample
-[![Build Status](https://travis-ci.org/izumin5210-sandbox/grpc-and-gateway-sample-app-go.svg?branch=master)](https://travis-ci.org/izumin5210-sandbox/grpc-and-gateway-sample-app-go)v
+[![Build Status](https://travis-ci.org/izumin5210-sandbox/grpc-and-gateway-sample-app-go.svg?branch=master)](https://travis-ci.org/izumin5210-sandbox/grpc-and-gateway-sample-app-go)
+[![license](https://img.shields.io/github/license/izumin5210-sandbox/grpc-and-gateway-sample-app-go.svg)](./LICENSE)
 
 ## Getting Started
 You can development this app using [creasty/rid](https://github.com/creasty/rid).
