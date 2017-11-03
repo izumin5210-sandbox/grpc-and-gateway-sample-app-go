@@ -20,3 +20,8 @@
 #  name = "github.com/x/y"
 #  version = "2.4.0"
 
+required = [
+  "github.com/golang/protobuf/protoc-gen-go",
+  "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway",
+  "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger",
+]

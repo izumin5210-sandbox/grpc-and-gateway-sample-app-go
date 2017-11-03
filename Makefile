@@ -4,7 +4,10 @@ SRC_FILES := $(shell git ls-files | grep -E "\.go$$" | grep -v -E "\.pb(:?\.gw)?
 GO_TEST_FLAGS  := -v -race
 GO_BUILD_FLAGS := -v -ldflags="-s -w"
 
-DEP_COMMANDS :=
+DEP_COMMANDS := \
+	github.com/golang/protobuf/protoc-gen-go \
+	github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
+	github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 
 define depcmdtmpl
 $(1):
