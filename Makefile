@@ -7,7 +7,8 @@ GO_BUILD_FLAGS := -v -ldflags="-s -w"
 DEP_COMMANDS := \
 	github.com/golang/protobuf/protoc-gen-go \
 	github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
-	github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+	github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
+	github.com/golang/lint/golint
 
 define depcmdtmpl
 $(1):

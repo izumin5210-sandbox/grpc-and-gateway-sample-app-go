@@ -33,6 +33,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/golang/lint"
+  packages = [".","golint"]
+  revision = "6aaf7c34af0f4c36a57e0c429bace4d706d8e931"
+
+[[projects]]
+  branch = "master"
   name = "github.com/golang/protobuf"
   packages = ["jsonpb","proto","protoc-gen-go","protoc-gen-go/descriptor","protoc-gen-go/generator","protoc-gen-go/grpc","protoc-gen-go/plugin","ptypes","ptypes/any","ptypes/duration","ptypes/struct","ptypes/timestamp"]
   revision = "1643683e1b54a9e88ad26d98f81400c8c9d9f4f9"
@@ -87,6 +93,12 @@
 
 [[projects]]
   branch = "master"
+  name = "golang.org/x/tools"
+  packages = ["go/gcexportdata","go/gcimporter15","go/types/typeutil"]
+  revision = "032dfd515a0b058cc9bc616139b136f923d3924a"
+
+[[projects]]
+  branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/api/annotations","googleapis/rpc/status"]
   revision = "03951f3b52582ecab79e5a37a86b5a20c5f64df7"
@@ -106,6 +118,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8bf0b1eeec64d97d4ff56ce3d6223df403e60baf91ddfbb701f06bcf555abb05"
+  inputs-digest = "b06c29214f78fc569d46e0bc604fa68e52ebe871381d46ef20a282c18123814b"
   solver-name = "gps-cdcl"
   solver-version = 1
