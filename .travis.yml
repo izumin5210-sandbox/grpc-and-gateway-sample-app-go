@@ -11,6 +11,8 @@ before_install:
 - go get -u github.com/golang/dep/cmd/dep
 
 install:
+- export GOBIN="$GOPATH/bin"
+- export PATH="$PATH:$GOBIN"
 - make dep
 - make cmds
 
