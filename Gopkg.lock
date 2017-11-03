@@ -46,7 +46,7 @@
 [[projects]]
   branch = "master"
   name = "github.com/grpc-ecosystem/go-grpc-middleware"
-  packages = [".","logging","logging/zap","tags"]
+  packages = [".","logging","logging/zap","recovery","tags"]
   revision = "82921fcf811d228d2fa202bc31238b356bf9f8d5"
 
 [[projects]]
@@ -142,6 +142,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "878fdf879863389bb38a5bf839db13cce82029fe4d9e629fca2630601c628220"
+  inputs-digest = "c776791a77e82c0c0bc4cb977638c129a8553c5fead221aa9ce32ae67a9ac4bc"
   solver-name = "gps-cdcl"
   solver-version = 1
