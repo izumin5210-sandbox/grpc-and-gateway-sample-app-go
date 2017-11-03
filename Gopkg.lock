@@ -39,13 +39,13 @@
 
 [[projects]]
   name = "google.golang.org/grpc"
-  packages = [".","balancer","codes","connectivity","credentials","grpclb/grpc_lb_v1/messages","grpclog","internal","keepalive","metadata","naming","peer","resolver","stats","status","tap","transport"]
+  packages = [".","balancer","codes","connectivity","credentials","grpclb/grpc_lb_v1/messages","grpclog","internal","keepalive","metadata","naming","peer","reflection","reflection/grpc_reflection_v1alpha","resolver","stats","status","tap","transport"]
   revision = "61d37c5d657a47e4404fd6823bd598341a2595de"
   version = "v1.7.1"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "2e0821f7fedba19eb6b2edd7da23df8c5153370ff1943d11c14749e202803134"
+  inputs-digest = "d87200baf7532bd58283f01d2fd6521d5a34959b8f2f8fa731a083bb3fea792a"
   solver-name = "gps-cdcl"
   solver-version = 1
