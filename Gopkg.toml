@@ -29,3 +29,7 @@ required = [
 [[constraint]]
   name = "github.com/soheilhy/cmux"
   version = "0.1.3"
+
+[[constraint]]
+  name = "github.com/creasty/apperrors"
+  version = "1.0.0"

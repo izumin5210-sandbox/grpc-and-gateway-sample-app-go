@@ -2,6 +2,12 @@
 
 
 [[projects]]
+  name = "github.com/creasty/apperrors"
+  packages = ["."]
+  revision = "c9bdbba6b05d5cd9539f6b3f6633a8dabe03afbf"
+  version = "v1.0.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/golang/glog"
   packages = ["."]
@@ -18,6 +24,12 @@
   packages = ["protoc-gen-grpc-gateway","protoc-gen-grpc-gateway/descriptor","protoc-gen-grpc-gateway/generator","protoc-gen-grpc-gateway/gengateway","protoc-gen-grpc-gateway/httprule","protoc-gen-swagger","protoc-gen-swagger/genswagger","runtime","runtime/internal","utilities"]
   revision = "589b126116b5fc961939b3e156c29e4d9d58222f"
   version = "v1.2.2"
+
+[[projects]]
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
+  version = "v0.8.0"
 
 [[projects]]
   name = "github.com/soheilhy/cmux"
@@ -52,6 +64,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "2e1786714b0040f565ffcc46cd124c26adb7e3585f99fddf40dffda05077eb58"
+  inputs-digest = "33263234f781c12da0451df1720959dca89552f09217d88aca978073b9aa95e6"
   solver-name = "gps-cdcl"
   solver-version = 1
