@@ -26,8 +26,8 @@ endef
 #-----------------------------------------------
 BIN := bin/app
 
-$(BIN): $(SRC_FIELS)
-	@echo "Building $(BIN)"
+$(BIN): $(SRC_FILES)
+	$(call section,Build $(BIN))
 	@go build $(GO_BUILD_FLAGS) -o $(BIN) main.go
 
 
