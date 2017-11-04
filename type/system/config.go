@@ -8,8 +8,11 @@ import (
 // Config stores general setting parameters that are loaded from
 // enviroment variables, a dotenv file, and yaml files
 type Config struct {
-	Env  string `envconfig:"env" valid:"required"`
-	Host string `envconfig:"host" valid:"required"`
+	Env             string `envconfig:"env" valid:"required"`
+	Host            string `envconfig:"host" valid:"required"`
+	SentryKey       string `envconfig:"sentry_key"`
+	SentrySecret    string `envconfig:"sentry_secret"`
+	SentryProjectID string `envconfig:"sentry_project_id"`
 }
 
 func loadConfig() (*Config, error) {
